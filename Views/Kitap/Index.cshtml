@@ -1,4 +1,4 @@
-﻿@using LibraryApplication.Utility
+﻿ @* @using LibraryApplication.Utility
 @model List<Kitap>
 @if (TempData["basarili"] != null)
 {
@@ -86,5 +86,73 @@
             <a asp-controller="Kitap" asp-action="EkleGuncelle" class="btn btn-lg btn-primary" type="button">Yeni Kitap Oluştur</a>
         </div>
     </div>
+    }
+</div>
+*@
+
+@using LibraryApplication.Utility
+@model List<Kitap>
+@if (TempData["basarili"] != null)
+{
+    <div class="alert alert-success text-center">
+        <strong>@TempData["basarili"]</strong>
+    </div>
+}
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h1 class="display-4">Kitaplar</h1>
+        </div>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">Resim</th>
+                <th class="text-center">Id</th>
+                <th class="text-center">Kitap Adı</th>
+                <th class="text-center">Tanım</th>
+                <th class="text-center">Yazar</th>
+                <th class="text-center">Fiyat</th>
+                <th class="text-center">Kitap Türü</th>
+                @if (User.IsInRole(UserRoles.Role_Admin))
+                {
+                    <th class="text-center">Güncelle</th>
+                    <th class="text-center">Sil</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kitap in Model)
+            {
+                <tr>
+                    <td class="align-middle text-center">
+                        <img src="@kitap.ResimUrl" alt="Kitap Resmi" style="border-radius:7px; border:1px solid #bbb9b9; max-width:100px; max-height:150px;">
+                    </td>
+                    <td class="align-middle text-center">@kitap.Id</td>
+                    <td class="align-middle text-center">@kitap.KitapAdi</td>
+                    <td class="align-middle text-center">@kitap.Tanim</td>
+                    <td class="align-middle text-center">@kitap.Yazar</td>
+                    <td class="align-middle text-center">@kitap.Fiyat.ToString("C")</td>
+                    <td class="align-middle text-center">@kitap.KitapTuru.Ad</td>
+                    @if (User.IsInRole(UserRoles.Role_Admin))
+                    {
+                        <td class="align-middle text-center">
+                            <a asp-controller="Kitap" asp-action="EkleGuncelle" asp-route-id="@kitap.Id" class="btn btn-success btn-sm" style="width:100px;">Güncelle</a>
+                        </td>
+                        <td class="align-middle text-center">
+                            <a asp-controller="Kitap" asp-action="Sil" asp-route-id="@kitap.Id" class="btn btn-danger btn-sm" style="width:100px;">Sil</a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if (User.IsInRole(UserRoles.Role_Admin))
+    {
+        <div class="row mt-4">
+            <div class="col text-center">
+                <a asp-controller="Kitap" asp-action="EkleGuncelle" class="btn btn-primary btn-lg">Yeni Kitap Oluştur</a>
+            </div>
+        </div>
     }
 </div>

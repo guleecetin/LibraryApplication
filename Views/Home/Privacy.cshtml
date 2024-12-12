@@ -1,4 +1,4 @@
-﻿@{
+﻿@* @{
     ViewData["Title"] = "İletişim Bilgileri";
 }
 <div class="text-center">
@@ -14,3 +14,114 @@
 <h3>E-posta adresimiz:</h3>
 <h3><a href="gulendam@gmail.com">gulendam@gmail.com</a></h3>
 </div>
+*@
+
+
+@{
+    ViewData["Title"] = "İletişim Bilgileri";
+}
+
+<div class="container" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+    <!-- İletişim Formu Üstte -->
+    <div class="contact-form" style="background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 40px; margin-top: 40px;">
+        <h3 style="text-align: center; color: #333; font-size: 30px; font-weight: bold;">Bize Ulaşın</h3>
+        <p style="text-align: center; color: #777; font-size: 18px;">Sorularınız ve geri bildirimleriniz için bizimle iletişime geçebilirsiniz.</p>
+
+        <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Ad Soyad -->
+            <div>
+                <label for="name" style="font-size: 18px; color: #555;">Ad Soyad</label>
+                <input type="text" id="name" name="Name" required
+                       style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; transition: border-color 0.3s;"
+                       placeholder="Adınızı ve soyadınızı girin" />
+            </div>
+
+            <!-- Telefon -->
+            <div>
+                <label for="phone" style="font-size: 18px; color: #555;">Telefon</label>
+                <input type="tel" id="phone" name="Phone" required
+                       style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; transition: border-color 0.3s;"
+                       placeholder="Telefon numaranızı girin" />
+            </div>
+
+            <!-- E-posta -->
+            <div>
+                <label for="email" style="font-size: 18px; color: #555;">E-posta</label>
+                <input type="email" id="email" name="Email" required
+                       style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; transition: border-color 0.3s;"
+                       placeholder="E-posta adresinizi girin" />
+            </div>
+
+            <!-- Mesaj -->
+            <div>
+                <label for="message" style="font-size: 18px; color: #555;">Mesajınız</label>
+                <textarea id="message" name="Message" rows="5" required
+                          style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; transition: border-color 0.3s;"
+                          placeholder="Bize ulaşmak istediğiniz mesajı yazın..."></textarea>
+            </div>
+
+            <!-- Gönder Butonu -->
+            <button type="submit"
+                    style="background-color: #f54e42; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 18px; cursor: pointer; transition: background-color 0.3s;">
+                Gönder
+            </button>
+        </form>
+
+        <!-- Onay Mesajı -->
+        <div id="confirmationMessage" style="display:none; color: green; text-align: center; margin-top: 20px;">
+            <h4>Mesajınız başarıyla gönderildi. Teşekkür ederiz!</h4>
+        </div>
+    </div>
+
+    <!-- Ofis Adresi Formun Altında -->
+    <div class="contact-info" style="background-color: #f8f8f8; padding: 20px; border-radius: 10px; margin-top: 40px;">
+        <h3 style="color: #333; font-size: 26px; font-weight: bold;">Adres:</h3>
+        <p style="color: #555; font-size: 18px;">
+            Maslak Levent İş Merkezi,
+            Maslak Mahallesi, Büyükdere Caddesi No:1,
+            Kat 15, Şişli, İstanbul, Türkiye
+        </p>
+        <h3 style="color: #333; font-size: 26px; font-weight: bold;">E-posta:</h3>
+        <p style="color: #555; font-size: 18px;">
+            <a href="mailto:gulendam@gmail.com" style="color: #f54e42; text-decoration: none; font-weight: bold;">contact@prestijcompany.com</a>
+        </p>
+    </div>
+</div>
+
+<!-- İletişim Formu Verilerini Alıp Gönderen Script -->
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Sayfanın yenilenmesini engeller
+
+        // Form verilerini alalım
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Burada AJAX veya başka bir mekanizma kullanarak verileri gönderebilirsiniz
+        // Örneğin, sadece bir onay mesajı gösterelim:
+
+        // Onay mesajını göster
+        document.getElementById("confirmationMessage").style.display = "block";
+
+        // Formu sıfırlayalım
+        document.getElementById("contactForm").reset();
+    });
+</script>
+
+<!-- Stil için ek CSS -->
+<style>
+    .contact-form input, .contact-form textarea {
+        font-family: 'Arial', sans-serif;
+    }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #f54e42;
+            outline: none;
+        }
+
+    button:hover {
+        background-color: #e8493d;
+    }
+</style>

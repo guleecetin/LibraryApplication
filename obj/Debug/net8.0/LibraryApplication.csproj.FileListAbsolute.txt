@@ -289,3 +289,4 @@ C:\Users\gulen\source\repos\LibraryApplication\LibraryApplication\obj\Debug\net8
 C:\Users\gulen\source\repos\LibraryApplication\LibraryApplication\obj\Debug\net8.0\LibraryApplication.pdb
 C:\Users\gulen\source\repos\LibraryApplication\LibraryApplication\obj\Debug\net8.0\LibraryApplication.genruntimeconfig.cache
 C:\Users\gulen\source\repos\LibraryApplication\LibraryApplication\obj\Debug\net8.0\ref\LibraryApplication.dll
+C:\Users\gulen\source\repos\LibraryApplication\LibraryApplication\obj\Debug\net8.0\LibraryApplication.sourcelink.json

@@ -1,4 +1,4 @@
-﻿@{
+﻿ @* @{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,3 +8,54 @@
     <br />
    <p><img src="/img/library.jpg"</p>
 </div>
+ *@
+<div class="container-fluid" style="padding: 0; background-color: #f9f9fb;">
+    <!-- Başlık ve Hoşgeldiniz Mesajı -->
+    <div class="text-center" style="padding: 80px 20px; background-color: #0066cc; color: white; border-bottom: 8px solid #fff; box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); border-radius: 0 0 20px 20px;">
+        <h1 class="display-4" style="font-family: 'Lora', serif; font-weight: bold; font-size: 40px; letter-spacing: 2px; line-height: 1.3; text-transform: uppercase; margin-bottom: 20px;">
+            Kütüphane Uygulamasına Hoş Geldiniz
+        </h1>
+        <p style="font-size: 18px; font-family: 'Nunito', sans-serif; color: #e1f1ff; max-width: 750px; margin: 0 auto; line-height: 1.6;">
+            Kitapların dünyasına adım atmak için doğru yerdesiniz. Hedefinize uygun binlerce kitabı keşfetmek için hemen başlayın!
+        </p>
+    </div>
+</div>
+
+
+
+    <!-- Resim Bölümü -->
+    <div class="text-center" style="margin-top: 30px; margin-bottom: 50px;">
+        <img src="/img/library.jpg" alt="Library Image" style="max-width: 70%; height: auto; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); transition: transform 0.3s ease-in-out;">
+    </div>
+
+    <!-- Davet Edici Mesaj -->
+    <div class="text-center" style="padding: 50px 20px; background-color: #fff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); border-radius: 15px; margin-top: -30px;">
+        <h3 style="color: #333; font-size: 35px; font-weight: bold; text-transform: uppercase;">Keşfetmeye Başla</h3>
+        <p style="color: #555; font-size: 20px; max-width: 750px; margin: 20px auto; font-family: 'Arial', sans-serif;">
+            Binlerce kitap arasından seçim yaparak okuma deneyiminizi bir üst seviyeye taşıyın.
+            Hedefinize uygun kitapları keşfetmek için aşağıdaki butona tıklayın!
+        </p>
+    <a href="/Identity/Account/Login" class="btn btn-lg" style="background-color: #FF4081; color: white; padding: 18px 35px; border-radius: 30px; font-size: 20px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(255, 64, 129, 0.2); transition: all 0.3s ease;">
+            Kitapları Keşfet
+        </a>
+    </div>
+
+    <!-- Footer - Alt Kısım -->
+    <div class="text-center" style="padding: 20px 0; background-color: #4A90E2; color: white; border-top: 5px solid #fff; margin-top: 40px;">
+        <p style="font-size: 18px; color: #fff;">&copy; 2024 Kütüphane Uygulaması. Tüm hakları saklıdır.</p>
+    </div>
+</div>
+
+<!-- Stil için ek CSS -->
+<style>
+    /* Hover Efekti ve Buton Animasyonu */
+    .btn:hover {
+        background-color: #ff1c6b;
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 64, 129, 0.3);
+    }
+
+    img:hover {
+        transform: scale(1.05);
+    }
+</style>

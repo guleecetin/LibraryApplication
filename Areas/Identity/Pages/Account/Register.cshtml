@@ -1,4 +1,4 @@
-﻿@page
+﻿  @* @page
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
@@ -87,6 +87,77 @@
             }
         </section>
     </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+  *@
+
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<h1 class="text-center text-primary">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="bg-light p-4 rounded shadow">
+            <h2 class="text-center text-success">Yeni Bir Hesap Oluşturun</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control border-success" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">E-posta</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control border-success" autocomplete="new-password" aria-required="true" placeholder="şifre" />
+                <label asp-for="Input.Password">Şifre</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control border-success" autocomplete="new-password" aria-required="true" placeholder="şifreyi onayla" />
+                <label asp-for="Input.ConfirmPassword">Şifreyi Onayla</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Ogrencino" class="form-control border-success" aria-required="true" placeholder="Öğrenci No" />
+                <label asp-for="Input.Ogrencino">Öğrenci No</label>
+                <span asp-validation-for="Input.Ogrencino" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Adres" class="form-control border-success" placeholder="Adres" />
+                <label asp-for="Input.Adres">Adres</label>
+                <span asp-validation-for="Input.Adres" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Fakulte" class="form-control border-success" placeholder="Fakülte" />
+                <label asp-for="Input.Fakulte">Fakülte</label>
+                <span asp-validation-for="Input.Fakulte" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Bolum" class="form-control border-success" placeholder="Bölüm" />
+                <label asp-for="Input.Bolum">Bölüm</label>
+                <span asp-validation-for="Input.Bolum" class="text-danger"></span>
+            </div>
+
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Kayıt Ol</button>
+        </form>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <p class="text-muted">Zaten bir hesabınız var mı? <a href="/Identity/Account/Login" class="text-primary">Giriş Yap</a></p>
 </div>
 
 @section Scripts {
