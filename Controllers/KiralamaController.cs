@@ -50,6 +50,29 @@ namespace LibraryApplication.Controllers
             }
            
         }
+        public IActionResult KiralamaView(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            // id ile kiralama verisini alıyoruz.
+            Kiralama kiralama = _kiralamaRepository.Get(u => u.Id == id);
+
+            if (kiralama == null)
+            {
+                return NotFound();
+            }
+
+            // Kiralama verisini view'a gönderiyoruz.
+            // Yönlendirmeyi burada yapıyoruz.
+            return RedirectToAction("Index", "Kiralama");
+        }
+
+
+
+
         [HttpPost]
         public IActionResult EkleGuncelle(Kiralama kiralama)
         {

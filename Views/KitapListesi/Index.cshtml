@@ -1,69 +1,4 @@
 ﻿@using LibraryApplication.Utility
-@* @model List<Kiralama>
-@if (TempData["basarili"] != null)
-{
-    <h2 style="color:red">@TempData["basarili"]</h2>
-}
-<div class="container">
-    <div class="row-pt-3 pb-4"
-    <div>
-
-
-<h1> Kitap Kiralamaları</h1>
-  </div>
-  </div>
-    <table class="table table-bordered">
-        <thead>
-
-
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    OgrenciId
-                </th>
-
-                <th>
-                    KitapId
-                </th>
-
-                <th>
-                 
-                </th>
-                <th>
-
-                </th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var kiralama in Model)
-            {
-
-
-                <tr>
-                    <td>@kiralama.Id</td>
-                    <td>@kiralama.OgrenciId</td>
-                      <td>@kiralama.Kitap.KitapAdi</td>
-                    <td>
-                        <a asp-controller="Kiralama" asp-action="EkleGuncelle" asp-route-id="@kiralama.Id" type="button" class="btn btn-success" style="width:250px">Güncelle</a>
-                    </td>
-                    <td>
-                        <a asp-controller="Kiralama" asp-action="Sil" asp-route-id="@kiralama.Id" type="button" class="btn btn-danger" style="width:250px">Sil</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <div class="row pt-3 pb-2">
-        <div>
-            <a asp-controller="Kiralama" asp-action="EkleGuncelle" class="btn btn-lg btn-primary" type="button">Yeni Kiralama Kaydı Oluştur</a>
-        </div>
-    </div>
-</div>
-*@
-
 @model List<LibraryApplication.Models.Kitap>
 
 @{
@@ -93,8 +28,7 @@
                         {
                             <div class="d-flex justify-content-between mt-3">
                                 <a href="#" class="btn btn-primary btn-sm w-48 book-action-btn">Satın Al</a>
-                                <a asp-controller="Kiralama" asp-action="KiralamaView" asp-route-kitapId="@kitap.Id" class="btn btn-warning btn-sm w-48 book-action-btn">Kirala</a>
-
+                                <a href="#" class="btn btn-warning btn-sm w-48 book-action-btn">Kirala</a>
                             </div>
                         }
                     </div>
@@ -113,12 +47,13 @@
     }
 </div>
 
+
 <style>
     .card-img-container {
         position: relative;
         width: 100%;
         height: 0;
-        padding-bottom: 135%;
+        padding-bottom: 135%; 
         overflow: hidden;
     }
 

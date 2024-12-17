@@ -1,4 +1,4 @@
-﻿@model Kiralama
+﻿@* @model Kiralama
 <form method="post" enctype="multipart/form-data">
 <div class="row">
     <div class="col-10">
@@ -47,3 +47,62 @@
         </div>
     </div>
 </form>
+*@
+@model Kiralama
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh;">
+    <form method="post" enctype="multipart/form-data" class="w-75">
+        <div class="row">
+            <!-- Form Alanları Bölümü -->
+            <div class="col-12">
+                <div class="border p-4 mt-4 rounded shadow-sm">
+                    <!-- Başlık -->
+                    <div class="row pb-3">
+                        <h2 class="text-primary text-center">
+                            @(Model == null ? "Yeni Kiralama" : "Kiralama Güncelle")
+                        </h2>
+                    </div>
+
+                    <!-- Öğrenci Id Alanı -->
+                    <div class="mb-4">
+                        <label asp-for="OgrenciId" class="form-label">Öğrenci Id</label>
+                        <input asp-for="OgrenciId" class="form-control" placeholder="Öğrenci Id girin" />
+                        <span asp-validation-for="OgrenciId" class="text-danger"></span>
+                    </div>
+
+                    <!-- KitapId Dropdown -->
+                    <div class="mb-4">
+                        <label asp-for="KitapId" class="form-label">Kitap Seç</label>
+                        <select asp-for="KitapId" asp-items="ViewBag.KitapList" class="form-select">
+                            <option value="">Kitap Seçin</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Butonu -->
+                    <div class="d-flex justify-content-center mb-3">
+                        @if (Model != null)
+                        {
+                            <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Güncelle</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Yeni Kiralama</button>
+                        }
+                    </div>
+
+                    <!-- Geri Dön Butonu -->
+                    <div class="d-flex justify-content-center">
+                        <a asp-controller="Kiralama" asp-action="Index" class="btn btn-lg btn-secondary" style="width:250px">Kiralamalara Geri Dön</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resim Bölümü -->
+            <div class="col-12 d-flex justify-content-center align-items-center mt-3">
+                @if (Model != null)
+                {
+                    <img src="@Model.Kitap.ResimUrl" class="img-fluid rounded border" style="max-width: 300px; max-height: 400px;" />
+                }
+            </div>
+        </div>
+    </form>
+</div>
